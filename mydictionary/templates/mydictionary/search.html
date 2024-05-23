@@ -1,0 +1,79 @@
+<head>
+    <style>
+        #header {
+            color: red;
+            text-align: center;
+        }
+        #l:hover {
+            color: red;
+        }
+        #l {
+            font-size: 12px;
+            color: green;
+        }
+        #mover {
+            color: yellow;
+            background-color: green;
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+{% extends 'mydictionary/base.html' %}
+
+{% block content %}
+
+<br>
+    <marquee id="mover"><h1>Search Results for "{{ word }}"</h1></marquee>
+<br>
+<br>
+<br>
+    {% if meanings %}
+        <h1 id="header">MEANINGS</h1>
+        <ul>
+            {% for pos, defs in meanings.items %}
+                <li><strong>{{ pos }}:</strong>
+                    <ul>
+                        {% for definition in defs %}
+                            <li>{{ definition }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No meanings found.</p>
+    {% endif %}
+
+    <br>
+    <h2 id="header">SYNONYMS:</h2>
+    <center><B><H3 color="red">NOT AVAILABLE DUE TO SOME COMPLICATIONS</H3></B></center>
+    <br>
+    {% if synonyms %}
+        <ul>
+            {% for synonym in synonyms %}
+                <li>{{ synonym }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No synonyms found.</p>
+    {% endif %}
+    
+    <br>
+    <h2 id="header">ANTONYMS:</h2>
+    <center><B><H3 color="red">NOT AVAILABLE DUE TO SOME COMPLICATIONS</H3></B></center>
+    <br>
+    {% if antonyms %}
+        <ul>
+            {% for antonym in antonyms %}
+                <li>{{ antonym }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No antonyms found.</p>
+    {% endif %}
+
+    <center><font id="l"><a href="{% url 'home' %}" id="l">Back to Home</a></font></center>
+<br>
+<br>
+{% endblock %}
