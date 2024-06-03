@@ -1,6 +1,6 @@
 # DICTIONARY APP USING DJANGO
 
-<br>It is my 1st Django project based on dictionary. Django Framework is the popular framework to build websites. This project<br>
+<br>It is my 1st Django project based on dictionary. Django Framework is the popular framework to build websites. This project 
 need to import Pydictionary, a python module. <br>
 The synonym and antonym are not available due to some complication of code of Pydictionary which doesnt mathces the target website
 from where it extracts the meaning. However it is able to give meaning. <br>
